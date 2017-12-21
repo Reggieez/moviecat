@@ -1,0 +1,39 @@
+<h2>即将上映</h2>
+<h3 ng-if="message">{{$scope.message}}</h3>    <!-- 当$scope.message存在时输出 -->
+<div class="list-group">
+  <a ng-repeat="item in subjects" href="#" class="list-group-item ">
+  	<span class="badge">{{item.rating.average}}</span>
+  	<div class="media">
+	  <div class="media-left">
+	    <img class="media-object" ng-src="{{item.images.small}}" alt="...">
+	  </div>
+	  <div class="media-body">
+	    <h4 class="media-heading">{{item.title}}</h4>
+	    <p>导演：<span ng-repeat="d in item.directors">{{d.name + ($last ? "" : "、")}}</span></p>
+	    <p>演员：<span ng-repeat="c in item.casts">{{c.name}}{{$last ? "" : "、"}}</span></p>
+	    <!-- <p>类型：{{item.genres.toString()}}</p> -->
+	    <!-- toString()方法输出数组以","分隔 -->
+	    <p>类型：{{item.genres.join("、")}}</p>
+
+	  </div>
+	</div>
+  </a>
+</div>
+
+
+
+<!-- loading动画 -->
+<div class="mask" ng-show="loading">
+    <div class="spinner">
+    	<div class="bounce1"></div>
+    	<div class="bounce2"></div>
+    	<div class="bounce3"></div>
+    </div>
+
+    <nav>
+  		<ul class="pager">
+    		<li><a href="#">Previous</a></li>
+    		<li><a href="#">Next</a></li>
+  		</ul>
+	</nav>
+</div>

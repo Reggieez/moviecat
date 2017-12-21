@@ -1,0 +1,26 @@
+<div class="media">
+  <div class="media-left media-middle">
+    <img class="media-object" ng-src="{{movie.images.medium}}" alt="{{movie.title}}">
+  </div>
+  <div class="media-body">
+    <h2 class="media-heading">{{movie.title}}</h2>
+    <p>导演：<span ng-repeat="d in movie.directors">{{d.name + ($last ? "" : "、")}}</span></p>
+    <p>主演：<span ng-repeat="c in movie.casts">{{c.name}}{{$last ? "" : "、"}}</span></p>
+    <!-- <p>类型：{{movie.genres.toString()}}</p> -->
+    <!-- toString()方法输出数组以","分隔 -->
+    <p>类型：{{movie.genres.join("、")}}</p>
+    <p>制片国家/地区：{{movie.countries.join("、")}}</p>
+    <p>年份：{{movie.year}}</p>
+    <p>又名：{{movie.aka.join("、")}}</p>
+    <p>剧情简介:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{movie.summary}}</p>
+  </div>
+</div>
+
+<!-- loading动画 -->
+<div class="mask" ng-hide="loading">
+    <div class="spinner">
+    	<div class="bounce1"></div>
+    	<div class="bounce2"></div>
+    	<div class="bounce3"></div>
+    </div>
+</div>
